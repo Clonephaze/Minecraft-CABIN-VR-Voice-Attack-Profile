@@ -296,6 +296,51 @@
                 flex: 1;
             }
         }
+
+        @media print {
+            body {
+                background: #fff !important;
+                /* Ensure white background for print */
+                color: #000 !important;
+                /* Black text for readability */
+                padding: 0;
+            }
+
+            .intro,
+            .category-section,
+            .card {
+                box-shadow: none !important;
+                /* Remove unnecessary shadows */
+            }
+
+            .card-grid {
+                display: block;
+                /* Avoid complex grid issues in print */
+            }
+
+            .card {
+                margin-bottom: 15px;
+                /* Ensure spacing remains clean */
+                page-break-inside: avoid !important;
+                /* Avoid page breaks inside cards */
+            }
+
+            .actions-toggle,
+            .actions-list {
+                display: none !important;
+                /* Hide expandable actions */
+            }
+
+            a[href]:after {
+                content: " (" attr(href) ")";
+                /* Show URLs after links */
+                font-size: 0.8em;
+            }
+
+            @page {
+                size: A4 portrait;
+            }
+        }
     </style>
 </head>
 <body>
